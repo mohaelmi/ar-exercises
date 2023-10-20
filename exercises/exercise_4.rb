@@ -15,10 +15,10 @@ Store.create(name: "yaletown", annual_revenue: 430000, mens_apparel: true, women
 @mens_stores =  Store.where(mens_apparel: true)
 
 # 3. Loop through each of these stores and output their name and annual revenue on each line.
-@Store.all.each do |store|
+Store.all.each do |store|
   puts store.name
   puts store.annual_revenue 
 end
 
 # 4. Do another fetch but this time load stores that carry women's apparel and are generating less than $1M in annual revenue.
-@mens_stores =  Store.where(annual_revenue < 1000000 , womens_apparel: true)
+@mens_stores =  Store.where("annual_revenue < #{1000000} ", womens_apparel = true)
