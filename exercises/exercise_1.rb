@@ -5,6 +5,8 @@ puts "----------"
 
 # Your code goes below here ...
 class Store < ActiveRecord::Base
+  validates :annual_revenue, numericality: { greater_than_or_equal_to: 0 }
+  # validates :name.length, numericality: { greater_than_or_equal_to: 3 }
   has_many :employees
 end
 
